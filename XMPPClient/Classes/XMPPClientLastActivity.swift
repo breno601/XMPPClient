@@ -16,7 +16,7 @@ public class XMPPClientLastActivity: NSObject {
     }()
     
     public func setup(connection:XMPPClientConnection) {
-        connection.activate(activity)
+        connection.activate(module: activity)
     }
     
     public func teardown() {

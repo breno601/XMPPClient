@@ -11,14 +11,14 @@ import XMPPFramework
 
 public class XMPPClientDeliveryReceipts: NSObject {
     public lazy var receipts: XMPPMessageDeliveryReceipts = {
-        let receipts = XMPPMessageDeliveryReceipts(dispatchQueue: dispatch_get_main_queue())
-        receipts.autoSendMessageDeliveryReceipts = true
-        receipts.autoSendMessageDeliveryRequests = true
-        return receipts
+        let receipts = XMPPMessageDeliveryReceipts(dispatchQueue: DispatchQueue.main)
+        receipts?.autoSendMessageDeliveryReceipts = true
+        receipts?.autoSendMessageDeliveryRequests = true
+        return receipts!
     }()
     
     public func setup(connection:XMPPClientConnection) {
-        connection.activate(receipts)
+        connection.activate(module: receipts)
     }
     
     public func teardown() {

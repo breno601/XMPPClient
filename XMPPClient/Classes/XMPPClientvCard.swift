@@ -27,8 +27,8 @@ public class XMPPClientvCard: NSObject {
     
     public func setup(connection:XMPPClientConnection) {
         self.connection = connection
-        connection.activate(temp)
-        connection.activate(avatar)
+        connection.activate(module: temp)
+        connection.activate(module: avatar)
     }
     
     public func teardown() {
